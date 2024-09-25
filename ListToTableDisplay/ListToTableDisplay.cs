@@ -8,6 +8,25 @@ namespace ListToTableDisplay
 {
     public class ListToTableDisplay
     {
+        private int _padding = 1;
+        private readonly char borderChar = '|';
+        private readonly char headerChar = '-';
+
+        /// <summary>
+        /// The padding on each side of the string value in the table cell. 
+        /// <para>The default is 1, the minimum is 1, and the maximum is 10.</para>
+        /// </summary>
+        public int Padding
+        {
+            private get => _padding;
+            set => _padding = value > 10 ? 10 : value < 1 ? 1 : value;
+        }
+
+        /// <summary>
+        /// Display a list of objects in a table format.
+        /// </summary>
+        /// <param name="list">The generic list containing the data to display.</param>
+        /// <returns>String.</returns>
         public string DisplayTable(List<object> list)
         {
             if (list.Count == 0) return "No data found!";
@@ -27,6 +46,10 @@ namespace ListToTableDisplay
             {
                 Console.WriteLine($"{item.Key} - {item.Value}");
             }
+
+            // Determine the lenght of the horizontal line.
+            int totalLength = columnsAndLengths.Sum(x => x.Value) + (Padding * 2 * columnCount) + (columnCount - 1) + 2;
+            Console.WriteLine($"totalLength: {totalLength}");
 
 
             StringBuilder tableBuilder = new StringBuilder();
