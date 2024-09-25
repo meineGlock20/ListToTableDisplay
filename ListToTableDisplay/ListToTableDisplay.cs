@@ -13,36 +13,8 @@ namespace ListToTableDisplay
             if (list.Count == 0) return "No data found!";
 
             // Determine how many properties the list has.
-            // TODO: This works - needs to be refactored.
             int columnCount = list.First().GetType().GetProperties().Count();
             Console.WriteLine($"columnCount: {columnCount}");
-
-            // For each property, determine the longest string length.
-            // Dictionary<string, int> columnWidths = new Dictionary<string, int>();
-            // foreach (var obj in list)
-            // {
-            //     Type type = obj.GetType();
-            //     PropertyInfo[] properties = type.GetProperties();
-
-            //     foreach (var property in properties)
-            //     {
-            //         string name = property.Name;
-            //         object value = property.GetValue(obj);
-            //         int length = value.ToString().Length;
-
-            //         if (columnWidths.ContainsKey(name))
-            //         {
-            //             if (length > columnWidths[name])
-            //             {
-            //                 columnWidths[name] = length;
-            //             }
-            //         }
-            //         else
-            //         {
-            //             columnWidths.Add(name, length);
-            //         }
-            //     }
-            // }
 
             // Get a dictionary of property names and their maximum string lengths.
             Dictionary<string, int> columnsAndLengths = list
