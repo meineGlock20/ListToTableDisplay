@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using ConsoleDemo.Models;
@@ -25,8 +26,27 @@ using (var reader = new StreamReader("MOCK_DATA.json"))
 
 if (people is null) throw new Exception("No data found!");
 
+// Display the top 5 people with the highest amount of money in their stock account, the usual way.
 System.Console.WriteLine("Unformatted data:");
 foreach (var person in people.OrderByDescending(x => x.Amount).Take(5))
 {
     Console.WriteLine($"{person.FirstName} {person.LastName} - {person.Amount.ToString("C")} - {person.StockName} - {person.City}, {person.Country}");
 }
+
+// Display the top 5 people with the highest amount of money in their stock account, using the ListToTableDisplay class.
+ListToTableDisplay.ListToTableDisplay listToTableDisplay = new()
+{
+    Padding = 1
+};
+var table = listToTableDisplay.DisplayTable(
+    people
+        .OrderByDescending(x => x.Amount)
+        .Take(5)
+        .Select(x => new { x.LastName, x.FirstName, x.StockName, x.Amount, x.City, x.Country })
+        .Cast<object>()
+        .ToList()
+);
+System.Console.WriteLine();
+System.Console.WriteLine("Summary of top 5 stock holders:");
+System.Console.WriteLine(table);
+
