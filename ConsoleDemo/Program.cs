@@ -27,10 +27,10 @@ using (var reader = new StreamReader("MOCK_DATA.json"))
 if (people is null) throw new Exception("No data found!");
 
 // Display the top 5 people with the highest amount of money in their stock account, the usual way.
-System.Console.WriteLine("Unformatted data:");
+System.Console.WriteLine("Summary of top 5 stock holders: (Unformatted data)");
 foreach (var person in people.OrderByDescending(x => x.Amount).Take(5))
 {
-    Console.WriteLine($"{person.FirstName} {person.LastName} - {person.Amount.ToString("C")} - {person.StockName} - {person.City}, {person.Country}");
+    Console.WriteLine($"{person.LastName.ToUpperInvariant()} {person.FirstName} - {person.StockName} - {person.Amount.ToString("C")} - {person.City}, {person.Country}");
 }
 
 // Display the top 5 people with the highest amount of money in their stock account, using the ListToTableDisplay class.
@@ -47,6 +47,6 @@ var table = listToTableDisplay.DisplayTable(
         .ToList()
 );
 System.Console.WriteLine();
-System.Console.WriteLine("Summary of top 5 stock holders:");
+System.Console.WriteLine("Summary of top 5 stock holders: (ListToTableDisplay)");
 System.Console.WriteLine(table);
 
