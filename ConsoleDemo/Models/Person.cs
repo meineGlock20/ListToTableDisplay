@@ -5,10 +5,10 @@ namespace ConsoleDemo.Models;
 
 public record Person
 {
-     [JsonPropertyName("first_name")]
+     [JsonPropertyName("last_name")]
     public required string LastName { get; init; }
 
-    [JsonPropertyName("last_name")]
+    [JsonPropertyName("first_name")]
     public required string FirstName { get; init; }
 
     [JsonPropertyName("email")]
