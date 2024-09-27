@@ -6,13 +6,18 @@ using System.Text;
 
 namespace ListToTableDisplay.Core
 {
+    /// <summary>
+    /// Contains the methods to build the table structure.
+    /// </summary>
+    /// <remarks>
+    /// For modern table outline, see https://en.wikipedia.org/wiki/Box-drawing_character.
+    /// </remarks>
     public class TableStructure
     {
-        // for modern table outline, see https://en.wikipedia.org/wiki/Box-drawing_character
-        // │└ ┘┌ ┐┬ ┴ ┼ ╭ ─ ╮ ╯ ╰
-
         private static readonly char vl = '│'; // vertical line
+        private static readonly char cvl = '|'; // classic vertical line
         private static readonly char hl = '─'; // horizontal line
+        private static readonly char chl = '-'; // classic horizontal line
         private static readonly char headerbl = '├'; // header bottom left
         private static readonly char headerbr = '┤'; // header bottom right
         private static readonly char tlc = '╭'; // top right corner
@@ -83,6 +88,6 @@ namespace ListToTableDisplay.Core
             sb.Append(borderStyle == BorderStyle.Modern ? brc : blc);
 
             return sb.ToString();
-        }       
+        }
     }
 }
