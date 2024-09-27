@@ -5,14 +5,12 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using ConsoleDemo.Models;
 
-Console.WriteLine("Displays the TOP 5 people with the highest amount of money in their stock account.");
 System.Console.WriteLine();
 
 // Get the data from the MOCK_DATA.json file and build a list of Person objects.
 var people = new List<Person>();
 
 // JsonSerializerOptions options;
-
 var options = new JsonSerializerOptions
 {
     Converters = { new ConsoleDemo.Core.DecimalConverter() }
@@ -20,14 +18,16 @@ var options = new JsonSerializerOptions
 
 using (var reader = new StreamReader("MOCK_DATA.json"))
 {
-    var json = await reader.ReadToEndAsync();
+    var json = reader.ReadToEnd();
     people = JsonSerializer.Deserialize<List<Person>>(json, options);
 }
 
 if (people is null) throw new Exception("No data found!");
 
 // Display the top 5 people with the highest amount of money in their stock account, the usual way.
+Console.ForegroundColor = ConsoleColor.Blue;
 System.Console.WriteLine("Summary of top 5 stock holders: (Unformatted data)");
+Console.ResetColor();
 foreach (var person in people.OrderByDescending(x => x.Amount).Take(5))
 {
     Console.WriteLine($"{person.LastName.ToUpperInvariant()} {person.FirstName} - {person.StockName} - {person.Amount.ToString("C")} - {person.City}, {person.Country}");
@@ -36,7 +36,8 @@ foreach (var person in people.OrderByDescending(x => x.Amount).Take(5))
 // Display the top 5 people with the highest amount of money in their stock account, using the ListToTableDisplay class.
 ListToTableDisplay.ListToTableDisplay listToTableDisplay = new()
 {
-    Padding = 1
+    Padding = 1,
+    HeaderTextStyle = ListToTableDisplay.HeaderTextStyle.SplitPascalCase,
 };
 var table = listToTableDisplay.DisplayTable(
     people
@@ -47,6 +48,8 @@ var table = listToTableDisplay.DisplayTable(
         .ToList()
 );
 System.Console.WriteLine();
+Console.ForegroundColor = ConsoleColor.Blue;
 System.Console.WriteLine("Summary of top 5 stock holders: (ListToTableDisplay)");
+Console.ResetColor();
 System.Console.WriteLine(table);
 
