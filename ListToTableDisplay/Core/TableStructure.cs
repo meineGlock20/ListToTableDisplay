@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Security.Authentication.ExtendedProtection;
 using System.Text;
 
 namespace ListToTableDisplay.Core
@@ -40,26 +41,26 @@ namespace ListToTableDisplay.Core
             int totalLength = listDataDictionary.Sum(x => x.Value.DataLength) + (padding * 2 * columnCount) + (columnCount - 1) + 2;
 
             // Top border.
-            sb.Append(borderStyle == BorderStyle.Modern ? tlc : trc);
-            sb.Append(new string(hl, totalLength - 2));
-            sb.Append(borderStyle == BorderStyle.Modern ? trc : tlc);
+            sb.Append(borderStyle == BorderStyle.Modern ? tlc : chl);
+            sb.Append(new string(borderStyle == BorderStyle.Modern ? hl : chl, totalLength - 2));
+            sb.Append(borderStyle == BorderStyle.Modern ? trc : chl);
             sb.AppendLine();
 
             foreach (var item in listDataDictionary)
             {
-                sb.Append(vl);
+                sb.Append(borderStyle == BorderStyle.Modern ? vl : cvl);
                 sb.Append(' ', padding);
                 sb.Append(item.Value.DisplayName);
                 int rightpadding = padding + item.Value.DataLength - item.Value.DisplayName.Length;
                 sb.Append(' ', rightpadding <= 0 ? 1 : rightpadding);
             }
-            sb.Append(vl);
+            sb.Append(borderStyle == BorderStyle.Modern ? vl : cvl);
 
             // Header separator.
             sb.AppendLine();
-            sb.Append(headerbl);
-            sb.Append(hl, totalLength - 2);
-            sb.Append(headerbr);
+            sb.Append(borderStyle == BorderStyle.Modern ? headerbl : chl);
+            sb.Append(borderStyle == BorderStyle.Modern ? hl : chl, totalLength - 2);
+            sb.Append(borderStyle == BorderStyle.Modern ? headerbl : chl);
 
             // Rows.
             sb.AppendLine();
@@ -68,7 +69,7 @@ namespace ListToTableDisplay.Core
                 Type type = obj.GetType();
                 PropertyInfo[] properties = type.GetProperties();
 
-                sb.Append(vl);
+                sb.Append(borderStyle == BorderStyle.Modern ? vl : cvl);
                 foreach (var property in properties)
                 {
                     string name = property.Name;
@@ -77,15 +78,15 @@ namespace ListToTableDisplay.Core
                     sb.Append(' ', padding);
                     sb.Append(value);
                     sb.Append(' ', padding + listDataDictionary[name].DataLength - value.ToString().Length);
-                    sb.Append(vl);
+                    sb.Append(borderStyle == BorderStyle.Modern ? vl : cvl);
                 }
                 sb.AppendLine();
             }
 
             // Bottom border.
-            sb.Append(borderStyle == BorderStyle.Modern ? blc : brc);
-            sb.Append(new string(hl, totalLength - 2));
-            sb.Append(borderStyle == BorderStyle.Modern ? brc : blc);
+            sb.Append(borderStyle == BorderStyle.Modern ? blc : chl);
+            sb.Append(new string(borderStyle == BorderStyle.Modern ? hl : chl, totalLength - 2));
+            sb.Append(borderStyle == BorderStyle.Modern ? brc : chl);
 
             return sb.ToString();
         }
