@@ -2,14 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using ListToTableDisplay.Core;
 
 namespace ListToTableDisplay
 {
-    // for modern table outline, see https://en.wikipedia.org/wiki/Box-drawing_character
-    // │└ ┘┌ ┐┬ ┴ ┼ ╭ ─ ╮ ╯ ╰
-
     public enum BorderStyle { Classic, Modern }
     public enum HeaderTextStyle { None, SplitPascalCase, SplitUnderline }
 
@@ -19,11 +15,8 @@ namespace ListToTableDisplay
         private BorderStyle _borderStyle;
         private HeaderTextStyle _headerTextStyle;
 
-        private readonly char borderChar = '|';
-        private readonly char headerChar = '┈';
-
         /// <summary>
-        /// The padding on each side of the string value in the table cell. 
+        /// Sets the padding on each side of the string value in the table cell. 
         /// <para>The default is 1, the minimum is 1, and the maximum is 10.</para>
         /// </summary>
         public int Padding
@@ -32,12 +25,22 @@ namespace ListToTableDisplay
             set => _padding = value > 10 ? 10 : value < 1 ? 1 : value;
         }
 
+        /// <summary>
+        /// Sets the border style of the table.
+        /// <para>Modern will use the Unicode box-drawing characters, and Classic will use the ASCII characters.</para>
+        /// <para>Modern is the default.</para>
+        /// </summary>
         public BorderStyle BorderStyle
         {
             private get => _borderStyle;
             set => _borderStyle = value;
         }
 
+        /// <summary>
+        /// Sets the header text style of the table.
+        /// <para>This will improve the readability of the header text. IE: SplitPascalCase will change LastName => Last Name</para>
+        /// <para>The default is None.</para>
+        /// </summary>
         public HeaderTextStyle HeaderTextStyle
         {
             private get => _headerTextStyle;
@@ -49,6 +52,7 @@ namespace ListToTableDisplay
         /// </summary>
         public ListToTableDisplay()
         {
+            // Set the default values. REM: Padding is set in the property and defaults to 1.
             BorderStyle = BorderStyle.Modern;
             HeaderTextStyle = HeaderTextStyle.None;
         }
@@ -98,7 +102,7 @@ namespace ListToTableDisplay
             }
 
             // Now for each property in the dictionary, we need to query the list of objects to find the maximum data length.
-            // This is used to determine the width of the column.
+            // This is used to determine the final width of the column.
             foreach (var item in listDataDictionary)
             {
                 int maxLength = list.Select(o => o.GetType().GetProperty(item.Key).GetValue(o).ToString().Length).Max();
