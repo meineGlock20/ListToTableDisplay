@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Security.Authentication.ExtendedProtection;
 using System.Text;
 
 namespace ListToTableDisplay.Core
@@ -25,9 +24,6 @@ namespace ListToTableDisplay.Core
         private static readonly char trc = '╮'; // top left corner
         private static readonly char blc = '╰'; // bottom left corner
         private static readonly char brc = '╯'; // bottom right corner
-        private static readonly char tcs = '┬'; // top center separator
-        private static readonly char bcs = '┴'; // bottom center separator
-        private static readonly char mcs = '┼'; // middle center separator
 
         internal static string BuildTable(Dictionary<string, Models.ListData> listDataDictionary,
             int padding, BorderStyle borderStyle, List<object> list)
@@ -60,7 +56,7 @@ namespace ListToTableDisplay.Core
             sb.AppendLine();
             sb.Append(borderStyle == BorderStyle.Modern ? headerbl : chl);
             sb.Append(borderStyle == BorderStyle.Modern ? hl : chl, totalLength - 2);
-            sb.Append(borderStyle == BorderStyle.Modern ? headerbl : chl);
+            sb.Append(borderStyle == BorderStyle.Modern ? headerbr : chl);
 
             // Rows.
             sb.AppendLine();
