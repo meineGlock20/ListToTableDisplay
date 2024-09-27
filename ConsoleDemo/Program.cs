@@ -43,7 +43,7 @@ var table = listToTableDisplay.DisplayTable(
     people
         .OrderByDescending(x => x.Amount)
         .Take(5)
-        .Select(x => new { x.LastName, x.FirstName, x.StockName, x.Amount, x.City, x.Country })
+        .Select(x => new { LastName = x.LastName.ToUpperInvariant(), x.FirstName, x.StockName, Amount = x.Amount.ToString("C"), x.City, x.Country })
         .Cast<object>()
         .ToList()
 );

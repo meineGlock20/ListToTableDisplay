@@ -11,7 +11,7 @@ namespace ListToTableDisplay
     // │└ ┘┌ ┐┬ ┴ ┼ ╭ ─ ╮ ╯ ╰
 
     public enum BorderStyle { Classic, Modern }
-    public enum HeaderTextStyle { None, SplitCamelCase, SplitUnderline }
+    public enum HeaderTextStyle { None, SplitPascalCase, SplitUnderline }
 
     public class ListToTableDisplay
     {
@@ -55,70 +55,57 @@ namespace ListToTableDisplay
 
         /// <summary>
         /// Display a list of objects in a table format.
+        /// <para>📌 It is highly recommended that you use a monospaced font in order to ensure proper formatting of the table!</para>
         /// </summary>
-        /// <param name="list">The generic list containing the data to display.</param>
+        /// <param name="list">
+        /// The generic list containing the data to display.
+        /// 👉 Cast your list to an object: MyList.Cast<object>().ToList()
+        /// </param>
         /// <returns>String.</returns>
         public string DisplayTable(List<object> list)
         {
-            if (list.Count == 0) return "No data found!";
+            if (list.Count == 0) return "🚩 No data found!";
 
-            // Determine how many properties the list has.
-            int columnCount = list.First().GetType().GetProperties().Count();
+            Dictionary<string, Models.ListData> listDataDictionary = new Dictionary<string, Models.ListData>();
 
-            // Get a dictionary of property names and their maximum string lengths.
-            Dictionary<string, int> columnsAndLengths = list
-                    .SelectMany(obj => obj.GetType().GetProperties(), (obj, prop) => new { prop.Name, Value = prop.GetValue(obj)?.ToString() ?? string.Empty })
-                    .GroupBy(x => x.Name)
-                    .ToDictionary(g => g.Key, g => g.Max(x => x.Value.Length));
+            // Use reflection to get a list of properties and extract the property name (key)
+            // and build the model for each property.
+            var obj = list.First();
+            Type type = obj.GetType();
+            PropertyInfo[] properties = type.GetProperties();
+            foreach (var property in properties)
+            {
+                string name = property.Name;
 
-            // Print each dictionary key and value.
-            // foreach (var item in columnsAndLengths)
-            // {
-            //     Console.WriteLine($"{item.Key} - {item.Value}");
-            // }
+                Models.ListData ld = new Models.ListData();
+                switch (HeaderTextStyle)
+                {
+                    case HeaderTextStyle.SplitPascalCase:
+                        ld.DisplayName = System.Text.RegularExpressions.Regex.Replace(name, "(\\B[A-Z])", " $1");
+                        break;
+                    case HeaderTextStyle.SplitUnderline:
+                        ld.DisplayName = name.Replace("_", " ");
+                        break;
+                    default:
+                        ld.DisplayName = name;
+                        break;
+                }
 
-            // Determine the total length of the horizontal line.
-            int totalLength = columnsAndLengths.Sum(x => x.Value) + (Padding * 2 * columnCount) + (columnCount - 1) + 2;
+                ld.OriginalName = name;
+                ld.DataLength = ld.DisplayName.ToString().Length;
 
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine(TableStructure.BuildHeader(columnsAndLengths, Padding, BorderStyle, HeaderTextStyle));
-            sb.AppendLine(TableStructure.BuildBody(columnsAndLengths, Padding, BorderStyle, HeaderTextStyle, list));
+                listDataDictionary.Add(name, ld);
+            }
 
+            // Now for each property in the dictionary, we need to query the list of objects to find the maximum data length.
+            // This is used to determine the width of the column.
+            foreach (var item in listDataDictionary)
+            {
+                int maxLength = list.Select(o => o.GetType().GetProperty(item.Key).GetValue(o).ToString().Length).Max();
+                if (maxLength > item.Value.DataLength) item.Value.DataLength = maxLength;
+            }
 
-            // Console.WriteLine($"totalLength: {totalLength}");
-
-            // string horizontalLine = new string(headerChar, totalLength);
-            // // Replace the first char with ┌
-            // horizontalLine = horizontalLine.Remove(0, 1).Insert(0, "╭");
-            // horizontalLine = horizontalLine.Remove(horizontalLine.Length - 1, 1).Insert(horizontalLine.Length - 1, "╮");
-
-            // StringBuilder sb = new StringBuilder();
-            // sb.AppendLine(horizontalLine);
-
-            // string test = new string(' ', totalLength);
-            // test = test.Remove(0, 1).Insert(0, "│");
-            // test = test.Remove(test.Length - 1, 1).Insert(test.Length - 1, "│");
-
-            // sb.AppendLine(test);
-
-
-            // foreach (var obj in list)
-            // {
-            //     Type type = obj.GetType();
-            //     PropertyInfo[] properties = type.GetProperties();
-
-            //     foreach (var property in properties)
-            //     {
-            //         string name = property.Name;
-            //         object value = property.GetValue(obj);
-            //         tableBuilder.AppendLine($"{name}: {value}");
-            //     }
-            //     tableBuilder.AppendLine(); // Add a blank line between objects
-            // }
-
-            // sb.AppendLine(horizontalLine);
-
-            return sb.ToString();
+            return TableStructure.BuildTable(listDataDictionary, Padding, BorderStyle, list);
         }
     }
 }
