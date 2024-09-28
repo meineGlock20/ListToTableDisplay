@@ -85,4 +85,9 @@ System.Console.WriteLine("Summary of top 5 stock holders: (ListToTableDisplay MO
 Console.ResetColor();
 System.Console.WriteLine(tablem);
 
+// Press any key to exit.
+System.Console.WriteLine();
+System.Console.WriteLine("Press any key to exit.");
+
+// Pause the console.
 Console.ReadKey();
