@@ -10,6 +10,7 @@ You can install the package via NuGet:
 ## Usage
 
 Here is a basic example of how to use the List to Table Formatter:
+See the ConsoleDemo for more advanced implementation.
 
 ```csharp
 // Pass your list to the DisplayTable method and write the table to the console. (Cast the list as an object)
@@ -28,6 +29,18 @@ ListToTableDisplay.ListToTableDisplay listToTableDisplay = new()
     BorderStyle = ListToTableDisplay.BorderStyle.Classic,
 };
 ```
+## Output Examples
+### Terminal
+
+![Screenshot 2024-09-28 102758](https://github.com/user-attachments/assets/6c1cb9c5-47db-4a83-a1e6-b6c34e5fa595)
+
+### Notepad
+![Screenshot 2024-09-28 084009](https://github.com/user-attachments/assets/9a9f1f23-3ec8-4d55-85c4-b70770d7b094)
+
+### Word
+![Screenshot 2024-09-28 084532](https://github.com/user-attachments/assets/14ffbaf6-d3bc-4710-b8b0-3d5266b0e060)
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
