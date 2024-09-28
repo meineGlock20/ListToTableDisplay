@@ -82,6 +82,8 @@ namespace ListToTableDisplay
                 string name = property.Name;
 
                 Models.ListData ld = new Models.ListData();
+
+                // Optionally, the user can set the header text style to improve readability.
                 switch (HeaderTextStyle)
                 {
                     case HeaderTextStyle.SplitPascalCase:
