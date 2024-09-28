@@ -49,11 +49,11 @@ ListToTableDisplay.ListToTableDisplay listToTableDisplay = new()
 {
     Padding = 1,
     HeaderTextStyle = ListToTableDisplay.HeaderTextStyle.SplitPascalCase,
-    BorderStyle = ListToTableDisplay.BorderStyle.Modern,
+    BorderStyle = ListToTableDisplay.BorderStyle.Classic,
 };
 
 // Pass your list to the DisplayTable method and display the table.
-var table = listToTableDisplay.DisplayTable(
+var tablec = listToTableDisplay.DisplayTable(
     people
         .OrderByDescending(x => x.Amount)
         .Take(5)
@@ -63,8 +63,26 @@ var table = listToTableDisplay.DisplayTable(
 );
 System.Console.WriteLine();
 Console.ForegroundColor = ConsoleColor.Blue;
-System.Console.WriteLine("Summary of top 5 stock holders: (ListToTableDisplay)");
+System.Console.WriteLine("Summary of top 5 stock holders: (ListToTableDisplay CLASSIC)");
 Console.ResetColor();
-System.Console.WriteLine(table);
+System.Console.WriteLine(tablec);
+
+// Set the BorderStyle property to Modern.
+listToTableDisplay.BorderStyle = ListToTableDisplay.BorderStyle.Modern;
+
+// Pass your list to the DisplayTable method and display the table.
+var tablem = listToTableDisplay.DisplayTable(
+    people
+        .OrderByDescending(x => x.Amount)
+        .Take(5)
+        .Select(x => new { LastName = x.LastName.ToUpperInvariant(), x.FirstName, x.StockName, Amount = x.Amount.ToString("C"), x.City, x.Country })
+        .Cast<object>()
+        .ToList()
+);
+System.Console.WriteLine();
+Console.ForegroundColor = ConsoleColor.Blue;
+System.Console.WriteLine("Summary of top 5 stock holders: (ListToTableDisplay MODERN)");
+Console.ResetColor();
+System.Console.WriteLine(tablem);
 
 Console.ReadKey();
