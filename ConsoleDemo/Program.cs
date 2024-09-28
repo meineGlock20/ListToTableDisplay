@@ -33,12 +33,17 @@ foreach (var person in people.OrderByDescending(x => x.Amount).Take(5))
     Console.WriteLine($"{person.LastName.ToUpperInvariant()} {person.FirstName} - {person.StockName} - {person.Amount.ToString("C")} - {person.City}, {person.Country}");
 }
 
-// Display the top 5 people with the highest amount of money in their stock account, using the ListToTableDisplay class.
+// ✨ Display the top 5 people with the highest amount of money in their stock account, using the ListToTableDisplay class.
+
+// Create a new instance of the ListToTableDisplay class and set the optional properties.
 ListToTableDisplay.ListToTableDisplay listToTableDisplay = new()
 {
     Padding = 1,
     HeaderTextStyle = ListToTableDisplay.HeaderTextStyle.SplitPascalCase,
+    BorderStyle = ListToTableDisplay.BorderStyle.Modern,
 };
+
+// Pass your list to the DisplayTable method and display the table.
 var table = listToTableDisplay.DisplayTable(
     people
         .OrderByDescending(x => x.Amount)
@@ -53,3 +58,4 @@ System.Console.WriteLine("Summary of top 5 stock holders: (ListToTableDisplay)")
 Console.ResetColor();
 System.Console.WriteLine(table);
 
+Console.ReadKey();
