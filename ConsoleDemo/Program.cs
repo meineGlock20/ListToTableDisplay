@@ -1,9 +1,18 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+﻿/*
+    .NET 8 ConsoleDemo to demonstrate the ListToTableDisplay library.
+    https://github.com/meineGlock20/ListToTableDisplay
+    2024-09-28
+
+    IMPORTANT NOTES:
+    In order for the table to display correctly, you must be using a monospaced font where the table is to be displayed.
+    For the Modern table style, you must use UTF-8 encoding to display the table correctly.
+*/
+
 using ConsoleDemo.Models;
+using System.Text.Json;
+
+// 📌 Set the console output encoding to UTF-8 to display the MODERN table correctly.
+Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 System.Console.WriteLine();
 
