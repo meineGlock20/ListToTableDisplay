@@ -1,7 +1,49 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Title>List to Table Formatter for .NET</Title>
+		<Authors>meineGlock20</Authors>
+		<Description>The List to Table Formatter for .NET is a versatile library designed to convert lists of objects into well-formatted table displays. It supports customizable padding, border styles, and header text styles to enhance readability. Ideal for console applications and logging, this library ensures your data is presented in a clear and structured manner. Compatible with .NET Standard 2.0, making it usable across .NET Framework, .NET Core, and .NET 5 and later versions.</Description>
+		<Copyright>© 2023 meineGlock20. All rights reserved.</Copyright>
+		<PackageProjectUrl>https://github.com/meineGlock20/ListToTableDisplay</PackageProjectUrl>
+		<PackageIcon>list-to-table-display.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/meineGlock20/ListToTableDisplay</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>table;formatter;list;display;console;logging;data;presentation;utility;dotnet;netstandard;csharp;table-formatting;object-list;text-table</PackageTags>
+		<PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+		<NeutralLanguage>en</NeutralLanguage>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>		
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<IncludeSymbols>True</IncludeSymbols>
+		<PackageId>MeineGlock.ListToTableDisplay</PackageId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="LICENSE">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="list-to-table-display.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="README.md">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="LICENSE">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
+		<None Update="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>
