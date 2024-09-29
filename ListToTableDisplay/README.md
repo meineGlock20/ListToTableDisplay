@@ -6,7 +6,6 @@ The List to Table Formatter for .NET is a versatile library designed to convert 
 
 You can install the package via NuGet:
 
-
 ## Usage
 
 Here is a basic example of how to use the List to Table Formatter:
@@ -17,6 +16,10 @@ See the ConsoleDemo for more advanced implementation.
 var table = listToTableDisplay.DisplayTable(MyList.Cast<object>().ToList());
 System.Console.WriteLine(table);
 ```
+## Formatting Notes
+- A monospaced font is required for proper table formatting.
+- UTF-8 encoding is required for the modern table format to display correctly.
+
 ## Customization
 
 You can customize the table display by setting various properties on the `TableDisplay` object. For example, you can change the padding, border style, and header text style:
@@ -39,7 +42,6 @@ ListToTableDisplay.ListToTableDisplay listToTableDisplay = new()
 
 ### Word
 ![Screenshot 2024-09-28 084532](https://github.com/user-attachments/assets/14ffbaf6-d3bc-4710-b8b0-3d5266b0e060)
-
 
 ## License
 
