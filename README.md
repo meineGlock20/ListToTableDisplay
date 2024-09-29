@@ -5,7 +5,9 @@ The List to Table Formatter for .NET is a versatile library designed to convert 
 ## Installation
 
 You can install the package via NuGet:
-
+```
+dotnet add package MeineGlock.ListToTableDisplay --version 1.0.0
+```
 ## Usage
 
 Here is a basic example of how to use the List to Table Formatter:
