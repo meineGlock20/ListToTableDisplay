@@ -17,33 +17,23 @@
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<IncludeSymbols>True</IncludeSymbols>
 		<PackageId>MeineGlock.ListToTableDisplay</PackageId>
-		<AssemblyVersion>1.0.1.1</AssemblyVersion>
-		<FileVersion>1.0.1.1</FileVersion>		
-		<Version>1.0.1</Version>
+		<AssemblyVersion>1.0.2.2</AssemblyVersion>
+		<FileVersion>1.0.2.2</FileVersion>		
+		<Version>1.0.2</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Include="LICENSE">
-		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-		</Content>
-		<Content Include="list-to-table-display.png">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="README.md">
-			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
-
-	<ItemGroup>
 		<None Update="LICENSE">
-		  <Pack>True</Pack>
-		  <PackagePath>\</PackagePath>
+			<Pack>True</Pack>
+			<PackagePath>LICENSE</PackagePath>
 		</None>
 		<None Update="README.md">
 			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
+			<PackagePath>README.md</PackagePath>
+		</None>
+		<None Update="list-to-table-display.png">
+			<Pack>True</Pack>
+			<PackagePath>list-to-table-display.png</PackagePath>
 		</None>
 	</ItemGroup>
 
