@@ -9,32 +9,33 @@
 		<PackageProjectUrl>https://github.com/meineGlock20/ListToTableDisplay</PackageProjectUrl>
 		<PackageIcon>list-to-table-display.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<RepositoryUrl>https://github.com/meineGlock20/ListToTableDisplay</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>table;formatter;list;display;console;logging;data;presentation;utility;dotnet;netstandard;csharp;table-formatting;object-list;text-table</PackageTags>
 		<PackageReleaseNotes>Initial Release</PackageReleaseNotes>
 		<NeutralLanguage>en</NeutralLanguage>
-		<PackageLicenseFile>LICENSE\LICENSE</PackageLicenseFile>
 		<IncludeSymbols>True</IncludeSymbols>
 		<PackageId>MeineGlock.ListToTableDisplay</PackageId>
 		<AssemblyVersion>1.0.2.2</AssemblyVersion>
-		<FileVersion>1.0.2.2</FileVersion>		
+		<FileVersion>1.0.2.2</FileVersion>
 		<Version>1.0.2</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<None Update="LICENSE">
-			<Pack>True</Pack>
-			<PackagePath>LICENSE</PackagePath>
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
 		</None>
 		<None Update="README.md">
 			<Pack>True</Pack>
-			<PackagePath>README.md</PackagePath>
+			<PackagePath>\</PackagePath>
 		</None>
 		<None Update="list-to-table-display.png">
 			<Pack>True</Pack>
 			<PackagePath>list-to-table-display.png</PackagePath>
 		</None>
 	</ItemGroup>
+
 
 </Project>
