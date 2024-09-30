@@ -1,4 +1,4 @@
-﻿# List to Table Formatter for .NET
+# List to Table Formatter for .NET
 
 The List to Table Formatter for .NET is a versatile library designed to convert lists of objects into well-formatted table displays. It supports customizable padding, border styles, and header text styles to enhance readability. Ideal for console applications and logging, this library ensures your data is presented in a clear and structured manner.
 
@@ -50,18 +50,14 @@ ListToTableDisplay.ListToTableDisplay listToTableDisplay = new()
 
 ## Output Examples
 ### Terminal
-
-![Screenshot 2024-09-28 102758](https://github.com/user-attachments/assets/6c1cb9c5-47db-4a83-a1e6-b6c34e5fa595)
+![Screenshot 2024-09-28 102758](https://github.com/meineGlock20/ListToTableDisplay/blob/main/images/Screenshot%202024-09-28%20102758.png)
 
 ### Notepad
-![Screenshot 2024-09-28 084009](https://github.com/user-attachments/assets/9a9f1f23-3ec8-4d55-85c4-b70770d7b094)
+![Screenshot 2024-09-28 084009](https://github.com/meineGlock20/ListToTableDisplay/blob/main/images/Screenshot%202024-09-28%20084009.png)
 
 ### Word
-![Screenshot 2024-09-28 084532](https://github.com/user-attachments/assets/14ffbaf6-d3bc-4710-b8b0-3d5266b0e060)
+![Screenshot 2024-09-28 084532](https://github.com/meineGlock20/ListToTableDisplay/blob/main/images/Screenshot%202024-09-28%20084532.png)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-
-
