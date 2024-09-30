@@ -58,6 +58,14 @@ ListToTableDisplay.ListToTableDisplay listToTableDisplay = new()
 ### Word
 ![Screenshot 2024-09-28 084532](https://github.com/meineGlock20/ListToTableDisplay/blob/main/images/Screenshot%202024-09-28%20084532.png)
 
+## Home Page
+https://github.com/meineGlock20/ListToTableDisplay
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License.
+
+![](https://img.shields.io/badge/License-MIT-blue.svg)
+
+https://github.com/meineGlock20/ListToTableDisplay/blob/main/ListToTableDisplay/LICENSE
+
