@@ -4,24 +4,30 @@ The List to Table Formatter for .NET is a versatile library designed to convert 
 
 ## Installation
 
-You can install the package via NuGet:
+You can install the lastest package via NuGet:
 ```
-dotnet add package MeineGlock.ListToTableDisplay --version 1.0.0
+dotnet add package MeineGlock.ListToTableDisplay --version 1.0.1
 ```
 
 ## Usage
 
-Here is a basic example of how to use the List to Table Formatter:
+Basic example of how to use the List to Table Formatter:
 See the ConsoleDemo for more advanced implementation.
 
 ```csharp
-// Pass your list to the DisplayTable method and write the table to the console. (Cast the list as an object)
-var table = listToTableDisplay.DisplayTable(MyList.Cast<object>().ToList());
-System.Console.WriteLine(table);
+var people = new List<Person>
+{
+    new() { Name = "John", Age = 25, City = "New York" },
+    new() { Name = "Jane", Age = 27, City = "Chicago" },
+    new() { Name = "Tom", Age = 30, City = "Los Angeles" },
+    new() { Name = "Lucy", Age = 35, City = "San Francisco" }
+};
+
+ListToTableDisplay listToTableDisplay = new();
+
+// Cast to an object list and pass to the DisplayTable method.
+Console.WriteLine(listToTableDisplay.DisplayTable(people.Cast<object>().ToList()));
 ```
-## Formatting Notes
-- A monospaced font is required for proper table formatting.
-- UTF-8 encoding is required for the modern table format to display correctly.
 
 ## Customization
 
@@ -30,11 +36,18 @@ You can customize the table display by setting various properties on the `TableD
 ```csharp
 ListToTableDisplay.ListToTableDisplay listToTableDisplay = new()
 {
+    // Left and right paddding. Value of 1 to 10, 1 is the default.
     Padding = 1,
+    // Split the header text by PascalCase or underscore. None is the default.
     HeaderTextStyle = ListToTableDisplay.HeaderTextStyle.SplitPascalCase,
+    // Set the border style to classic or modern. Modern is the default.
     BorderStyle = ListToTableDisplay.BorderStyle.Classic,
 };
 ```
+## Formatting Notes
+- A monospaced font is required for proper table formatting.
+- UTF-8 encoding is required for the modern table format to display correctly.
+
 ## Output Examples
 ### Terminal
 
