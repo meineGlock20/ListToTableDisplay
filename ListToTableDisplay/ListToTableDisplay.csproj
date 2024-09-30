@@ -14,7 +14,7 @@
 		<PackageTags>table;formatter;list;display;console;logging;data;presentation;utility;dotnet;netstandard;csharp;table-formatting;object-list;text-table</PackageTags>
 		<PackageReleaseNotes>Initial Release</PackageReleaseNotes>
 		<NeutralLanguage>en</NeutralLanguage>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageLicenseFile>LICENSE\LICENSE</PackageLicenseFile>
 		<IncludeSymbols>True</IncludeSymbols>
 		<PackageId>MeineGlock.ListToTableDisplay</PackageId>
 		<AssemblyVersion>1.0.2.2</AssemblyVersion>
