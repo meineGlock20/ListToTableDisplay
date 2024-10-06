@@ -47,7 +47,10 @@ ListToTableDisplay.ListToTableDisplay listToTableDisplay = new()
 ## Formatting Notes
 - A monospaced font is required for proper table formatting.
 - UTF-8 encoding is required for the modern table format to display correctly.
-
+- If your console is not formatting the modern table correctly, try setting the console to output UTF-8.
+```
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+```
 ## Output Examples
 ### Terminal
 ![Screenshot 2024-09-28 102758](https://github.com/meineGlock20/ListToTableDisplay/blob/main/images/Screenshot%202024-09-28%20102758.png)
