@@ -15,6 +15,8 @@ Basic example of how to use the List to Table Formatter:
 See the ConsoleDemo for more advanced implementation.
 
 ```csharp
+using ListToTableDisplay;
+
 var people = new List<Person>
 {
     new() { Name = "John", Age = 25, City = "New York" },
