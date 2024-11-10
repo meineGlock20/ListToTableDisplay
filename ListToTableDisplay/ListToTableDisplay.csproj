@@ -5,7 +5,7 @@
 		<Title>List to Table Formatter for .NET</Title>
 		<Authors>meineGlock20</Authors>
 		<Description>The List to Table Formatter for .NET is a versatile library designed to convert lists of objects into well-formatted table displays. It supports customizable padding, border styles, and header text styles to enhance readability. Ideal for console applications and logging, this library ensures your data is presented in a clear and structured manner. Compatible with .NET Standard 2.0, making it usable across .NET Framework, .NET Core, and .NET 5 and later versions.</Description>
-		<Copyright>© 2023 meineGlock20. All rights reserved.</Copyright>
+		<Copyright>© 2024 meineGlock20. All rights reserved.</Copyright>
 		<PackageProjectUrl>https://github.com/meineGlock20/ListToTableDisplay</PackageProjectUrl>
 		<PackageIcon>list-to-table-display.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
@@ -17,9 +17,9 @@
 		<NeutralLanguage>en</NeutralLanguage>
 		<IncludeSymbols>True</IncludeSymbols>
 		<PackageId>MeineGlock.ListToTableDisplay</PackageId>
-		<AssemblyVersion>1.0.2.2</AssemblyVersion>
-		<FileVersion>1.0.2.2</FileVersion>
-		<Version>1.0.2</Version>
+		<AssemblyVersion>1.0.3.3</AssemblyVersion>
+		<FileVersion>1.0.3.3</FileVersion>
+		<Version>1.0.3</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
