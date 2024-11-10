@@ -63,6 +63,12 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 ### Word
 ![Screenshot 2024-09-28 084532](https://github.com/meineGlock20/ListToTableDisplay/blob/main/images/Screenshot%202024-09-28%20084532.png)
 
+## Release Notes
+- 1.0.3 - 2024-11-10 - Fixed an issue where a null value in the list would cause an exception.
+- 1.0.2 - 2024-09-30 - Internal improvements.
+- 1.0.1 - 2024-09-30 - Internal improvements.
+- 1.0.0 - 2024-09-29 - Initial release.
+  
 ## Home Page
 https://github.com/meineGlock20/ListToTableDisplay
 
