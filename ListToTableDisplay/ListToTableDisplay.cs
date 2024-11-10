@@ -107,7 +107,7 @@ namespace ListToTableDisplay
             // This is used to determine the final width of the column.
             foreach (var item in listDataDictionary)
             {
-                int maxLength = list.Select(o => o.GetType().GetProperty(item.Key).GetValue(o).ToString().Length).Max();
+                int maxLength = list.Select(o => o.GetType().GetProperty(item.Key).GetValue(o)?.ToString()?.Length ?? 0).Max();
                 if (maxLength > item.Value.DataLength) item.Value.DataLength = maxLength;
             }
 

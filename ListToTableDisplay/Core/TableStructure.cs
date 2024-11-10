@@ -73,7 +73,7 @@ namespace ListToTableDisplay.Core
 
                     sb.Append(' ', padding);
                     sb.Append(value);
-                    sb.Append(' ', padding + listDataDictionary[name].DataLength - value.ToString().Length);
+                    sb.Append(' ', padding + listDataDictionary[name].DataLength - (value is null ? 0 : value.ToString().Length));
                     sb.Append(borderStyle == BorderStyle.Modern ? vl : cvl);
                 }
                 sb.AppendLine();
