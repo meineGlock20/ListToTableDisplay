@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using ListToTableDisplay.Core;
 
 namespace ListToTableDisplay
 {
     public class ListToHtmlTableDisplay
     {
+        /// <summary>
+        /// Generates an HTML table representation of a list of objects.
+        /// </summary>
+        /// <param name="list">The list of objects to be displayed in the table.</param>
+        /// <param name="headerTextStyle">The style to be applied to the header text.</param>
+        /// <param name="minify">If true, the generated HTML will be minified by removing line breaks.</param>
+        /// <param name="tableId">Optional ID attribute for the table element.</param>
+        /// <param name="tableClass">Optional class attribute for the table element.</param>
+        /// <returns>A string containing the HTML representation of the table.</returns>
         public static string DisplayTable(
             List<object> list,
             HeaderTextStyle headerTextStyle,
