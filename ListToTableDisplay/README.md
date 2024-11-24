@@ -120,15 +120,6 @@ ListToTableDisplay.ListToTableDisplay listToTableDisplay = new()
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 ```
 
-## Output Examples
-### Terminal
-![Screenshot 2024-09-28 102758](https://github.com/meineGlock20/ListToTableDisplay/blob/main/images/Screenshot%202024-09-28%20102758.png)
-
-### Notepad
-![Screenshot 2024-09-28 084009](https://github.com/meineGlock20/ListToTableDisplay/blob/main/images/Screenshot%202024-09-28%20084009.png)
-
-### Word
-![Screenshot 2024-09-28 084532](https://github.com/meineGlock20/ListToTableDisplay/blob/main/images/Screenshot%202024-09-28%20084532.png)
 
 ## Release Notes
 - 1.1.0 - 2024-11-24 - Added the ability to display a list of objects as an HTML table for web applications.
