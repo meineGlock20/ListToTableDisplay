@@ -19,21 +19,12 @@ public class IndexModel : PageModel
             Converters = { new Core.DecimalConverter() }
         };
 
+        // Read the JSON file and deserialize it into a list of Person objects.
         using (var reader = new StreamReader("./Data/MOCK_DATA.json"))
         {
             var json = reader.ReadToEnd();
             people = JsonSerializer.Deserialize<List<Person>>(json, options);
         }
-
-        ListToTableDisplay.ListToTableDisplay listToTableDisplay = new()
-        {
-            // Left and right paddding. Value of 1 to 10, 1 is the default.
-            Padding = 1,
-            // Split the header text by PascalCase or underscore. None is the default.
-            HeaderTextStyle = ListToTableDisplay.HeaderTextStyle.SplitPascalCase,
-            // Set the border style to classic or modern. Modern is the default.
-            BorderStyle = ListToTableDisplay.BorderStyle.Modern,
-        };
 
         if (people is null || people.Count == 0)
         {
@@ -42,17 +33,17 @@ public class IndexModel : PageModel
         }
 
         // Pass your list to the DisplayTable method and display the table.
-        var tablec = listToTableDisplay.DisplayTable(
+        var htmlTable = ListToTableDisplay.ListToHtmlTableDisplay.DisplayTable(
             people
                 .OrderByDescending(x => x.Amount)
                 .Take(5)
                 .Select(x => new { LastName = x.LastName.ToUpperInvariant(), x.FirstName, x.StockName, Amount = x.Amount.ToString("C"), x.City, x.Country })
                 .Cast<object>()
                 .ToList()
-        );
+        , ListToTableDisplay.HeaderTextStyle.SplitPascalCase, minify: false, tableClass: "table table-striped table-hover", tableId: "peopleTable");
 
-        GeneratedTable = tablec;
-
+        // Set the generated table to the property to display in the Razor Page.
+        GeneratedTable = htmlTable;
     }
 }
 

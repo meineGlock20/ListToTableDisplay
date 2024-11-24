@@ -2,7 +2,6 @@
 @model WebApplicationDemo.Pages.IndexModel
 @{
 }
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,44 +16,19 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Web Application Demo</h1>
-        <p>Demonstrates the use of ListToHtmlTable!</p>
-        <p><a href="https://github.com/meineGlock20/ListToTableDisplay">https://github.com/meineGlock20/ListToTableDisplay</a></p>
+        <div class="badge bg-primary">Demonstrates the use of ListToHtmlTable!</div>
+        <div>
+            <div class="badge bg-secondary">C#</div>
+            <div class="badge bg-secondary">ASP.NET</div>
+            <div class="badge bg-secondary">RAZOR</div>
+        </div>
+        <p><a
+                href="https://github.com/meineGlock20/ListToTableDisplay">https://github.com/meineGlock20/ListToTableDisplay</a>
+        </p>
     </div>
     <div id="table_container" class="container">
-
         @* This is where the table will be displayed *@
         @Html.Raw(Model.GeneratedTable)
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>twitter</td>
-                </tr>
-            </tbody>
-        </table>
-
     </div>
 </body>
 
