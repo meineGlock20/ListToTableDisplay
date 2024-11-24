@@ -6,9 +6,6 @@ using ListToTableDisplay.Core;
 
 namespace ListToTableDisplay
 {
-    public enum BorderStyle { Classic, Modern }
-    public enum HeaderTextStyle { None, SplitPascalCase, SplitUnderline }
-
     public class ListToTableDisplay
     {
         private int _padding = 1;
