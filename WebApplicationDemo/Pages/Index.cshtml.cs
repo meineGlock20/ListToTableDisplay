@@ -1,6 +1,5 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebApplicationDemo.Pages;
@@ -9,11 +8,10 @@ public class IndexModel : PageModel
 {
     public string? GeneratedTable { get; set; }
 
-    public void OnGet()
+    public async Task OnGetAsync()
     {
         var people = new List<Person>();
 
-        // JsonSerializerOptions options;
         var options = new JsonSerializerOptions
         {
             Converters = { new Core.DecimalConverter() }
@@ -22,7 +20,7 @@ public class IndexModel : PageModel
         // Read the JSON file and deserialize it into a list of Person objects.
         using (var reader = new StreamReader("./Data/MOCK_DATA.json"))
         {
-            var json = reader.ReadToEnd();
+            var json = await reader.ReadToEndAsync();
             people = JsonSerializer.Deserialize<List<Person>>(json, options);
         }
 
@@ -33,6 +31,7 @@ public class IndexModel : PageModel
         }
 
         // Pass your list to the DisplayTable method and display the table.
+        // In this case, I'm modifying the list with LINQ but regardless, you must cast the list to an object. .Cast<object>().ToList()
         var htmlTable = ListToTableDisplay.ListToHtmlTableDisplay.DisplayTable(
             people
                 .OrderByDescending(x => x.Amount)
