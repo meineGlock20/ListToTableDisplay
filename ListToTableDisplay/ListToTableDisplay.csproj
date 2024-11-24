@@ -4,7 +4,7 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Title>List to Table Formatter for .NET</Title>
 		<Authors>meineGlock20</Authors>
-		<Description>The List to Table Formatter for .NET is a versatile library designed to convert lists of objects into well-formatted table displays. It supports customizable padding, border styles, and header text styles to enhance readability. Ideal for console applications and logging, this library ensures your data is presented in a clear and structured manner. Compatible with .NET Standard 2.0, making it usable across .NET Framework, .NET Core, and .NET 5 and later versions.</Description>
+		<Description>The List to Table Formatter for .NET is a versatile library designed to convert lists of objects into well-formatted table displays. It supports customizable padding, border styles, and header text styles to enhance readability. Ideal for console applications and web applications, this library ensures your data is presented in a clear and structured manner. Compatible with .NET Standard 2.0, making it usable across .NET Framework, .NET Core, and .NET 5 and later versions.</Description>
 		<Copyright>© 2024 meineGlock20. All rights reserved.</Copyright>
 		<PackageProjectUrl>https://github.com/meineGlock20/ListToTableDisplay</PackageProjectUrl>
 		<PackageIcon>list-to-table-display.png</PackageIcon>
@@ -12,14 +12,14 @@
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<RepositoryUrl>https://github.com/meineGlock20/ListToTableDisplay</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>table;formatter;list;display;console;logging;data;presentation;utility;dotnet;netstandard;csharp;table-formatting;object-list;text-table</PackageTags>
-		<PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+		<PackageTags>table;formatter;list;display;console;logging;data;presentation;utility;dotnet;netstandard;csharp;table-formatting;object-list;text-table;html</PackageTags>
+		<PackageReleaseNotes>Added the ability to display a list of objects as an HTML table for web applications.</PackageReleaseNotes>
 		<NeutralLanguage>en</NeutralLanguage>
 		<IncludeSymbols>True</IncludeSymbols>
 		<PackageId>MeineGlock.ListToTableDisplay</PackageId>
-		<AssemblyVersion>1.0.3.3</AssemblyVersion>
-		<FileVersion>1.0.3.3</FileVersion>
-		<Version>1.0.3</Version>
+		<AssemblyVersion>1.1.4.0</AssemblyVersion>
+		<FileVersion>1.1.4.0</FileVersion>
+		<Version>1.1.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
