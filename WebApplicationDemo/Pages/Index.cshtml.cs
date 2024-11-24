@@ -8,20 +8,26 @@ public class IndexModel : PageModel
 {
     public string? GeneratedTable { get; set; }
 
+    /// <summary>
+    /// Gets the JSON serializer options with custom converters.
+    /// </summary>
+    /// <remarks>
+    /// This instance of <see cref="JsonSerializerOptions"/> includes a custom converter for decimal values.
+    /// </remarks>
+    private static readonly JsonSerializerOptions JsonSerializerOptions = new()
+    {
+        Converters = { new Core.DecimalConverter() }
+    };
+
     public async Task OnGetAsync()
     {
         var people = new List<Person>();
-
-        var options = new JsonSerializerOptions
-        {
-            Converters = { new Core.DecimalConverter() }
-        };
 
         // Read the JSON file and deserialize it into a list of Person objects.
         using (var reader = new StreamReader("./Data/MOCK_DATA.json"))
         {
             var json = await reader.ReadToEndAsync();
-            people = JsonSerializer.Deserialize<List<Person>>(json, options);
+            people = JsonSerializer.Deserialize<List<Person>>(json, JsonSerializerOptions);
         }
 
         if (people is null || people.Count == 0)
